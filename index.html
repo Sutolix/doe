@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/img/logo.png" />
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Doe sangue! Doe vida</title>
 </head>
 
@@ -16,6 +17,7 @@
         <p>Até 3 vidas com 1 doação</p>
         <p>Mais de 38.000 doações são necessárias todos os dias</p>
         <p>Apenas 1,9% da população brasileira, doa sangue.</p>
+        <button>Quero ajudar</button>
     </header>
 
     <section class="form">
@@ -31,8 +33,9 @@
             name="email"
             placeholder="Email"
             >
-
-            <label for="blood">Tipo Sanguíneo</label>
+            
+            <div class="type-blood">
+            <label for="blood">Tipo Sanguíneo:</label>
             <select id="blood">
               <option value="A+">A+</option>
               <option value="A-">A-</option>
@@ -43,6 +46,7 @@
               <option value="O+">O+</option>
               <option value="O-">O-</option>
             </select>
+            </div>
 
             <button>Quero ajudar</button>
         </form>
