@@ -8,10 +8,6 @@
 - Java Script
 - SQL (PostgreSQL)
 
-
-
-
-
 **commands**
 
 `npm init -y`
@@ -22,12 +18,15 @@
 
 `npm install nunjucks`
 
-(permite o uso de variaveis dentro do html)
+###### (permite o uso de variaveis dentro do html)
 
 `sudo apt install postgresql postgresql-contrib`
 
-(instala o postgrest - usando linux mint)
+###### (instala o postgrest - usando linux mint)
 
 `npm install pg`
 
-(postgre do node)
+###### (postgre do node)
+
+`npm start`
+###### inicia a aplicação
