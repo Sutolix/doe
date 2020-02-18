@@ -1,0 +1,25 @@
+{
+  "name": "doe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon services/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sutolix/DOE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sutolix/DOE/issues"
+  },
+  "homepage": "https://github.com/Sutolix/DOE#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "nunjucks": "^3.2.0"
+  }
+}

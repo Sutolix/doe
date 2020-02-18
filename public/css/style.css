@@ -57,6 +57,7 @@ header button{
     color: #fff;
     border: none;
     font-weight: bold;
+    cursor: pointer;
 }
 
 /*Formulario*/
@@ -99,6 +100,7 @@ form input::placeholder{
 form button{
     background: #fff;
     font-weight: bold;
+    cursor: pointer;
 }
 
 form .type-blood{
