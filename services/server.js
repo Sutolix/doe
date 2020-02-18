@@ -8,6 +8,16 @@ server.use(express.static('public'))
 //Habilitar body do formulário
 server.use(express.urlencoded({ extended: true }))
 
+//Configura a conexão com o banco de dados
+const Pool = require('pg').Pool
+const db = new Pool({
+    user: 'postgres',
+    password: 'postgres',
+    host: 'localhost',
+    port: 5432,
+    database: 'doe'
+})
+
 //Configura a template engine
 const nunjucks = require("nunjucks")
 nunjucks.configure("./", {
@@ -15,32 +25,15 @@ nunjucks.configure("./", {
     noCache: true, //para não carregar cache durante a produção
 })
 
-//Lista de doadores: Array
-const donors = [
-    {
-        name: "Diego Fernandes",
-        blood: "AB+"
-    },
-
-    {
-        name: "Cleiton Souza",
-        blood: "B+"
-    },
-
-    {
-        name: "Matheus Ferreira",
-        blood: "A+"
-    },
-
-    {
-        name: "Jaqueline Silva",
-        blood: "O-"
-    }
-]
-
 //Configura a apresentação da página
 server.get("/", function(req, res){
-    return res.render("index.html", { donors })
+    
+    db.query("SELECT * FROM donors ORDER BY id DESC", function(err, result){
+        if (err) return res.send("Erro no banco de dados.")
+        
+        const donors = result.rows
+        return res.render("index.html", { donors })
+    })
 })
 
 server.post("/", function(req, res){
@@ -49,13 +42,22 @@ server.post("/", function(req, res){
     const email = req.body.email
     const blood = req.body.blood
 
-    //coloca valores dentro do array
-    donors.push({
-        name: name,
-        blood: blood,
-    })
+    if (name == "" || email == "" || blood == ""){
+        return res.send("Todos os campos são obrigatórios!")
+    }
 
-    return res.redirect("/")
+    //coloca valores dentro do banco de dados
+    const query = `INSERT INTO donors ("name", "email", "blood")
+    VALUES ($1, $2, $3)`
+
+    const values = [name, email, blood]
+
+    db.query(query, values, function(err){
+        //erro
+        if (err) return res.send("erro no banco de dados.")
+        //ok
+        return res.redirect("/")
+    })
 })
 
 //Liga o servidor e permite seu acesso na porta 3000

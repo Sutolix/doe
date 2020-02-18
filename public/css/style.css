@@ -32,7 +32,7 @@ header, .form, main{
 
 /*Títulos*/
 main h2{
-    margin-bottom: 70px;
+    margin-bottom: 20px;
 }
 
 main h2 span{
@@ -141,6 +141,7 @@ main .donors p{
 .blood{
     display: flex; /*para o before aparecer*/
     position: relative;
+    margin-top: 50px;
     align-items: center;
     justify-content: center;
     color: #ff4f4f;
