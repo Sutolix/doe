@@ -19,8 +19,9 @@
   "homepage": "https://github.com/Sutolix/DOE#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "minimist": "^1.2.5",
     "nodemon": "^2.0.2",
-    "nunjucks": "^3.2.0",
+    "nunjucks": "^3.2.1",
     "pg": "^7.18.1"
   }
 }
